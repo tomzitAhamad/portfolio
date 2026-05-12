@@ -108,3 +108,25 @@ projects.forEach((project) => {
   });
 
 });
+// Experience Card Animation
+
+const timelineCards =
+  document.querySelectorAll(".timeline-content");
+
+timelineCards.forEach((card) => {
+
+  card.addEventListener("mouseenter", () => {
+
+    card.style.transform =
+      "translateY(-8px) scale(1.02)";
+
+  });
+
+  card.addEventListener("mouseleave", () => {
+
+    card.style.transform =
+      "translateY(0) scale(1)";
+
+  });
+
+});

@@ -767,3 +767,188 @@ nav ul li a.active{
   }
 
 }
+/* =========================
+   Experience Section
+========================= */
+
+.experience-section{
+  padding:120px 10%;
+  background:#ffffff;
+}
+
+/* Title */
+
+.experience-title{
+  text-align:center;
+  margin-bottom:80px;
+}
+
+.experience-title h2{
+  font-size:50px;
+  color:#0f172a;
+}
+
+.experience-title h2 span{
+  color:#f59e0b;
+}
+
+.experience-title p{
+  margin-top:15px;
+  color:#4b5563;
+  font-size:18px;
+}
+
+/* Timeline */
+
+.timeline{
+  position:relative;
+  max-width:900px;
+  margin:auto;
+}
+
+/* Vertical Line */
+
+.timeline::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+
+  top:0;
+
+  width:4px;
+
+  height:100%;
+
+  background:#312e81;
+
+  transform:translateX(-50%);
+}
+
+/* Timeline Item */
+
+.timeline-item{
+  position:relative;
+
+  width:50%;
+
+  padding:20px 40px;
+
+  margin-bottom:50px;
+}
+
+/* Left Side */
+
+.timeline-item:nth-child(odd){
+  left:0;
+  text-align:right;
+}
+
+/* Right Side */
+
+.timeline-item:nth-child(even){
+  left:50%;
+}
+
+/* Dot */
+
+.timeline-dot{
+  position:absolute;
+
+  top:30px;
+
+  width:20px;
+  height:20px;
+
+  background:#f59e0b;
+
+  border-radius:50%;
+
+  z-index:10;
+}
+
+/* Dot Position */
+
+.timeline-item:nth-child(odd) .timeline-dot{
+  right:-10px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+  left:-10px;
+}
+
+/* Content */
+
+.timeline-content{
+  background:#f8fafc;
+
+  padding:30px;
+
+  border-radius:20px;
+
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+  transition:0.3s;
+}
+
+/* Hover */
+
+.timeline-content:hover{
+  transform:translateY(-8px);
+}
+
+/* Text */
+
+.timeline-content h3{
+  font-size:26px;
+  color:#111827;
+  margin-bottom:10px;
+}
+
+.timeline-content h4{
+  color:#312e81;
+  margin-bottom:10px;
+}
+
+.timeline-content span{
+  display:inline-block;
+  margin-bottom:15px;
+
+  color:#f59e0b;
+  font-weight:600;
+}
+
+.timeline-content p{
+  color:#4b5563;
+  line-height:1.8;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .timeline::before{
+    left:10px;
+  }
+
+  .timeline-item{
+    width:100%;
+    padding-left:50px;
+    padding-right:0;
+
+    left:0 !important;
+
+    text-align:left !important;
+  }
+
+  .timeline-dot{
+    left:0 !important;
+  }
+
+  .experience-title h2{
+    font-size:38px;
+  }
+
+}
