@@ -952,3 +952,68 @@ nav ul li a.active{
   }
 
 }
+/* =========================
+   Footer
+========================= */
+
+.footer{
+  background:#0f172a;
+
+  color:white;
+
+  padding:25px 10%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+/* Text */
+
+.footer p{
+  font-size:16px;
+}
+
+/* Icons */
+
+.footer-icons{
+  display:flex;
+  gap:15px;
+}
+
+.footer-icons a{
+  width:42px;
+  height:42px;
+
+  background:#1e293b;
+  color:white;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  border-radius:50%;
+
+  text-decoration:none;
+
+  transition:0.3s;
+}
+
+.footer-icons a:hover{
+  background:#f59e0b;
+  transform:translateY(-5px);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .footer{
+    flex-direction:column;
+    text-align:center;
+  }
+
+}
