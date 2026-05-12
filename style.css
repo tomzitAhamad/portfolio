@@ -393,8 +393,8 @@ nav ul li a.active{
 }
 
 .about-image img{
-  width:100%;
-  max-width:450px;
+  width:80%;
+  max-width:650px;
 
   border-radius:25px;
 
