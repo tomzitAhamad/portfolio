@@ -511,31 +511,127 @@
     </div>
 
   </section>
-  <!-- Footer -->
+<!-- =========================
+     Footer Section
+========================= -->
 
 <footer class="footer">
 
-  <p>
+  <p class="footer-text">
     © 2026 Tomzit Ahamad | Flutter Developer
   </p>
 
   <div class="footer-icons">
 
-    <a href="https://github.com/tomzitAhamad">
+    <a href="#">
       <i class="fab fa-github"></i>
     </a>
 
-    <a href="https://linkedin.com/in/tomzit-ahamad-0b6598400">
+    <a href="#">
       <i class="fab fa-linkedin"></i>
     </a>
 
-    <a href="https://www.facebook.com/sa.kib.505960">
+    <a href="#">
       <i class="fab fa-facebook"></i>
     </a>
 
   </div>
 
 </footer>
+
+<!-- =========================
+     Footer CSS
+========================= -->
+
+<style>
+
+.footer{
+  background:#0f172a;
+
+  color:white;
+
+  padding:25px 10%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:20px;
+}
+
+/* Footer Text */
+
+.footer-text{
+  font-size:16px;
+  font-weight:500;
+}
+
+/* Icons */
+
+.footer-icons{
+  display:flex;
+  gap:15px;
+}
+
+.footer-icons a{
+  width:42px;
+  height:42px;
+
+  background:#1e293b;
+  color:white;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  border-radius:50%;
+
+  text-decoration:none;
+
+  font-size:18px;
+
+  transition:0.3s;
+}
+
+/* Hover */
+
+.footer-icons a:hover{
+  background:#f59e0b;
+  transform:translateY(-5px);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .footer{
+    flex-direction:column;
+    text-align:center;
+  }
+
+}
+
+</style>
+
+<!-- =========================
+     Footer JS
+========================= -->
+
+<script>
+
+// Dynamic Footer Year
+
+const currentYear =
+  new Date().getFullYear();
+
+document.querySelector(
+  ".footer-text"
+).innerHTML =
+  `© ${currentYear} Tomzit Ahamad | Flutter Developer`;
+
+</script>
 
 
   <script src="script.js"></script>

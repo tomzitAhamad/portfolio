@@ -131,11 +131,3 @@ timelineCards.forEach((card) => {
   });
 
 });
-// Footer Year
-
-const year = new Date().getFullYear();
-
-document.querySelector(
-  ".footer p"
-).innerHTML =
-  `© ${year} Tomzit Ahamad | Flutter Developer`;
