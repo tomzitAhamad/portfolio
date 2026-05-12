@@ -59,3 +59,12 @@ function eraseText(){
 }
 
 window.onload = typeWriter;
+// About Button Click
+
+const aboutBtn = document.querySelector(".about-btn");
+
+aboutBtn.addEventListener("click", () => {
+
+  alert("Your CV download link will be added later!");
+
+});
