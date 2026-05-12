@@ -87,3 +87,24 @@ skillCards.forEach((card) => {
   });
 
 });
+// Project Card Hover Animation
+
+const projects = document.querySelectorAll(".project-card");
+
+projects.forEach((project) => {
+
+  project.addEventListener("mouseenter", () => {
+
+    project.style.transform =
+      "translateY(-10px) scale(1.02)";
+
+  });
+
+  project.addEventListener("mouseleave", () => {
+
+    project.style.transform =
+      "translateY(0) scale(1)";
+
+  });
+
+});

@@ -593,3 +593,177 @@ nav ul li a.active{
   }
 
 }
+/* =========================
+   Projects Section
+========================= */
+
+.projects-section{
+  padding:120px 10%;
+  background:#f8fafc;
+}
+
+/* Title */
+
+.projects-title{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.projects-title h2{
+  font-size:50px;
+  color:#0f172a;
+}
+
+.projects-title h2 span{
+  color:#f59e0b;
+}
+
+.projects-title p{
+  margin-top:15px;
+  color:#4b5563;
+  font-size:18px;
+}
+
+/* Container */
+
+.projects-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(340px,1fr));
+  gap:35px;
+}
+
+/* Card */
+
+.project-card{
+  background:white;
+
+  border-radius:25px;
+
+  overflow:hidden;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+  transition:0.4s;
+}
+
+/* Hover */
+
+.project-card:hover{
+  transform:translateY(-10px);
+}
+
+/* Image */
+
+.project-img{
+  width:100%;
+  height:240px;
+  overflow:hidden;
+}
+
+.project-img img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:0.4s;
+}
+
+.project-card:hover .project-img img{
+  transform:scale(1.08);
+}
+
+/* Content */
+
+.project-content{
+  padding:30px;
+}
+
+.project-content h3{
+  font-size:28px;
+  color:#111827;
+  margin-bottom:15px;
+}
+
+.project-content p{
+  color:#4b5563;
+  line-height:1.8;
+  margin-bottom:25px;
+}
+
+/* Tags */
+
+.project-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+
+  margin-bottom:25px;
+}
+
+.project-tags span{
+  background:#312e81;
+  color:white;
+
+  padding:8px 16px;
+
+  border-radius:30px;
+
+  font-size:14px;
+}
+
+/* Buttons */
+
+.project-buttons{
+  display:flex;
+  gap:15px;
+}
+
+.live-btn,
+.github-btn{
+  text-decoration:none;
+
+  padding:12px 22px;
+
+  border-radius:30px;
+
+  font-weight:600;
+
+  transition:0.3s;
+}
+
+/* Live Button */
+
+.live-btn{
+  background:#312e81;
+  color:white;
+}
+
+.live-btn:hover{
+  background:#1e1b4b;
+}
+
+/* GitHub Button */
+
+.github-btn{
+  background:#111827;
+  color:white;
+}
+
+.github-btn:hover{
+  background:black;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .projects-title h2{
+    font-size:38px;
+  }
+
+  .projects-title p{
+    font-size:16px;
+  }
+
+}
