@@ -1,7 +1,8 @@
 const texts = [
-  "Flutter Development",
-  "App Development",
+  "Flutter App Development",
+  "Web Development",
   "UI Design",
+  "Api Integration",
   "Firebase",
   "Cross Platform Apps"
 ];
