@@ -1,133 +1,60 @@
+// Typing Effect
 const texts = [
-  "Flutter App Development",
-  "Web Development",
-  "UI Design",
-  "Api Integration",
-  "Firebase",
-  "Cross Platform Apps"
+  "Flutter Developer.",
+  "Web Developer.",
+  "App Developer.",
+  "Full-Stack Developer."
 ];
 
-let speed = 100;
-
+let speed = 90;
 const textElements = document.querySelector(".typing");
-
 let textIndex = 0;
 let charIndex = 0;
 
 function typeWriter() {
-
-  if(charIndex < texts[textIndex].length){
-
+  if (!textElements) return;
+  if (charIndex < texts[textIndex].length) {
     textElements.innerHTML += texts[textIndex].charAt(charIndex);
-
     charIndex++;
-
     setTimeout(typeWriter, speed);
-
+  } else {
+    setTimeout(eraseText, 1600);
   }
-  else{
-
-    setTimeout(eraseText, 1500);
-
-  }
-
 }
 
-function eraseText(){
-
-  if(textElements.innerHTML.length > 0){
-
-    textElements.innerHTML =
-      textElements.innerHTML.slice(0, -1);
-
-    setTimeout(eraseText, 50);
-
-  }
-  else{
-
-    textIndex++;
-
-    if(textIndex >= texts.length){
-      textIndex = 0;
-    }
-
+function eraseText() {
+  if (!textElements) return;
+  if (textElements.innerHTML.length > 0) {
+    textElements.innerHTML = textElements.innerHTML.slice(0, -1);
+    setTimeout(eraseText, 45);
+  } else {
+    textIndex = (textIndex + 1) % texts.length;
     charIndex = 0;
-
-    setTimeout(typeWriter, 500);
-
+    setTimeout(typeWriter, 400);
   }
-
 }
 
-window.onload = typeWriter;
-// About Button Click
+window.addEventListener("DOMContentLoaded", () => {
+  typeWriter();
 
-const aboutBtn = document.querySelector(".about-btn");
+  // Active Navbar Link on Scroll
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll("nav ul li a");
 
-aboutBtn.addEventListener("click", () => {
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 120;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
 
-  alert("Your CV download link will be added later!");
-
-});
-// Skills Animation
-
-const skillCards = document.querySelectorAll(".skill-card");
-
-skillCards.forEach((card) => {
-
-  card.addEventListener("mouseenter", () => {
-
-    card.style.transform = "translateY(-12px) scale(1.05)";
-
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
   });
-
-  card.addEventListener("mouseleave", () => {
-
-    card.style.transform = "translateY(0) scale(1)";
-
-  });
-
-});
-// Project Card Hover Animation
-
-const projects = document.querySelectorAll(".project-card");
-
-projects.forEach((project) => {
-
-  project.addEventListener("mouseenter", () => {
-
-    project.style.transform =
-      "translateY(-10px) scale(1.02)";
-
-  });
-
-  project.addEventListener("mouseleave", () => {
-
-    project.style.transform =
-      "translateY(0) scale(1)";
-
-  });
-
-});
-// Experience Card Animation
-
-const timelineCards =
-  document.querySelectorAll(".timeline-content");
-
-timelineCards.forEach((card) => {
-
-  card.addEventListener("mouseenter", () => {
-
-    card.style.transform =
-      "translateY(-8px) scale(1.02)";
-
-  });
-
-  card.addEventListener("mouseleave", () => {
-
-    card.style.transform =
-      "translateY(0) scale(1)";
-
-  });
-
 });
