@@ -1177,6 +1177,180 @@ nav ul li a.active {
   box-shadow: 0 0 15px rgba(255, 1, 79, 0.4);
 }
 
+/* ============================================
+   Full Page Scroll Reveal & Entrance Animations
+   ============================================ */
+
+/* Hero Entrance Animations on Load */
+.hero-content .subtitle {
+  opacity: 0;
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.hero-content .title {
+  opacity: 0;
+  animation: heroSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+}
+
+.hero-content .description {
+  opacity: 0;
+  animation: heroSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.hero-bottom-actions {
+  opacity: 0;
+  animation: heroSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+}
+
+.hero-thumbnail {
+  opacity: 0;
+  animation: heroCardEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards, heroCardFloat 5s ease-in-out 1.3s infinite alternate;
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroSlideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroCardEntrance {
+  from { opacity: 0; transform: translateY(35px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes heroCardFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+/* Core Scroll Reveal Animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(45px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-zoom {
+  opacity: 0;
+  transform: scale(0.88) translateY(25px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-zoom.is-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Quick Reset when scrolled out of view (so reverse scroll always re-animates immediately) */
+.scroll-reveal:not(.is-visible),
+.scroll-reveal-left:not(.is-visible),
+.scroll-reveal-right:not(.is-visible),
+.scroll-reveal-zoom:not(.is-visible) {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition-delay: 0s !important;
+}
+
+/* Stagger Grid Timing */
+.stagger-grid > .scroll-reveal,
+.stagger-grid > .scroll-reveal-zoom,
+.stagger-grid > .scroll-reveal-left,
+.stagger-grid > .scroll-reveal-right {
+  transition-delay: var(--stagger-delay, 0s);
+}
+
+.stagger-grid > *:not(.is-visible) {
+  transition-delay: 0s !important;
+}
+
+/* Section Header Cascade */
+.section-header.scroll-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.section-header.scroll-reveal .subtitle {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-header.scroll-reveal h2 {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+.section-header.scroll-reveal p {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.section-header.is-visible .subtitle,
+.section-header.is-visible h2,
+.section-header.is-visible p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-header:not(.is-visible) .subtitle,
+.section-header:not(.is-visible) h2,
+.section-header:not(.is-visible) p {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition-delay: 0s !important;
+}
+
+/* Hover States for Revealed Cards */
+.feature-card.scroll-reveal.is-visible:hover,
+.project-card-inbio.scroll-reveal.is-visible:hover {
+  transform: translateY(-8px);
+}
+
+.skill-card-inbio.scroll-reveal-zoom.is-visible:hover {
+  transform: translateY(-6px) scale(1.03);
+}
+
+.contact-card-inbio.scroll-reveal.is-visible:hover {
+  transform: translateY(-6px);
+}
+
 /* =========================
    Responsive Breakpoints
 ========================= */
@@ -1307,6 +1481,16 @@ nav ul li a.active {
     flex-direction: column;
     text-align: center;
     padding: 25px 5%;
+  }
+
+  .scroll-reveal-left,
+  .scroll-reveal-right {
+    transform: translateY(30px);
+  }
+
+  .scroll-reveal-left.is-visible,
+  .scroll-reveal-right.is-visible {
+    transform: translateY(0);
   }
 }
 

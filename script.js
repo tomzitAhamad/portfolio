@@ -143,4 +143,42 @@ window.addEventListener("DOMContentLoaded", () => {
 
     terminalObserver.observe(codeCard);
   }
+
+  // ============================================
+  // Full Page Scroll Reveal Animations
+  // ============================================
+  const revealElements = document.querySelectorAll(
+    ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-zoom"
+  );
+
+  // Apply stagger delay to children of .stagger-grid
+  const staggerGrids = document.querySelectorAll(".stagger-grid");
+  staggerGrids.forEach((grid) => {
+    Array.from(grid.children).forEach((child, index) => {
+      child.style.setProperty("--stagger-delay", `${index * 0.08}s`);
+    });
+  });
+
+  if (revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Triggers when scrolling DOWN into view OR scrolling UP into view
+            entry.target.classList.add("is-visible");
+          } else {
+            // Resets when scrolled out of view in EITHER direction (up or down)
+            // so that reverse scrolling always re-animates smoothly!
+            entry.target.classList.remove("is-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "-15px 0px -15px 0px",
+      }
+    );
+
+    revealElements.forEach((el) => revealObserver.observe(el));
+  }
 });
