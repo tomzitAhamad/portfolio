@@ -57,4 +57,90 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // ============================================
+  // Code Terminal & Stats Counter Animation on Scroll (Up & Down)
+  // ============================================
+  const codeCard = document.getElementById("codeTerminalCard");
+  let counterAnimationFrames = [];
+
+  function animateCounters() {
+    counterAnimationFrames.forEach((id) => cancelAnimationFrame(id));
+    counterAnimationFrames = [];
+
+    const statElements = document.querySelectorAll(".stat-num[data-target]");
+    statElements.forEach((el) => {
+      el.classList.remove("stat-done");
+      const target = parseInt(el.getAttribute("data-target"), 10);
+      const prefix = el.getAttribute("data-prefix") || "";
+      const suffix = el.getAttribute("data-suffix") || "";
+      const duration = 1100; // ms
+      const startTime = performance.now();
+
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Smooth cubic ease out
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const currentVal = Math.round(easeOut * target);
+
+        let displayVal = currentVal;
+        if (prefix && currentVal < 10) {
+          displayVal = `${prefix}${currentVal}`;
+        } else if (!prefix && target >= 10 && currentVal < 10) {
+          displayVal = `0${currentVal}`;
+        }
+
+        el.textContent = `${displayVal}${suffix}`;
+
+        if (progress < 1) {
+          const frameId = requestAnimationFrame(update);
+          counterAnimationFrames.push(frameId);
+        } else {
+          const finalVal = prefix && target < 10 ? `${prefix}${target}` : target;
+          el.textContent = `${finalVal}${suffix}`;
+          el.classList.add("stat-done");
+        }
+      }
+
+      const initialFrame = requestAnimationFrame(update);
+      counterAnimationFrames.push(initialFrame);
+    });
+  }
+
+  function resetCounters() {
+    counterAnimationFrames.forEach((id) => cancelAnimationFrame(id));
+    counterAnimationFrames = [];
+
+    const statElements = document.querySelectorAll(".stat-num[data-target]");
+    statElements.forEach((el) => {
+      const suffix = el.getAttribute("data-suffix") || "";
+      el.textContent = `00${suffix}`;
+      el.classList.remove("stat-done");
+    });
+  }
+
+  if (codeCard) {
+    const terminalObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Scrolled into view: trigger code reveal and numbers count-up
+            codeCard.classList.add("is-active");
+            animateCounters();
+          } else {
+            // Scrolled out of view (upwards or downwards): reset so it can re-trigger
+            codeCard.classList.remove("is-active");
+            resetCounters();
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Triggers when 20% of terminal is visible
+      }
+    );
+
+    terminalObserver.observe(codeCard);
+  }
 });

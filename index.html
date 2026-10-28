@@ -7,7 +7,7 @@
   <title>Tomzit Ahamad | Flutter & Web Developer</title>
 
   <!-- CSS (INBIO Theme) -->
-  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="style.css?v=13" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
@@ -191,7 +191,8 @@
 
       <!-- Left Developer Showcase (Code Terminal & Stats) -->
       <div class="about-left-showcase">
-        <div class="code-terminal-card">
+        <div class="code-terminal-card" id="codeTerminalCard">
+          <div class="terminal-scan-line"></div>
           <div class="terminal-header">
             <div class="terminal-dots">
               <span class="dot dot-red"></span>
@@ -207,38 +208,39 @@
             </div>
           </div>
 
-          <div class="terminal-body">
-            <pre><code><span class="code-kw">class</span> <span class="code-cls">TomzitAhamad</span> {
-  <span class="code-kw">final</span> <span class="code-type">String</span> role = <span class="code-str">"Flutter & Web Developer"</span>;
-  <span class="code-kw">final</span> <span class="code-type">String</span> location = <span class="code-str">"Dhaka, Bangladesh"</span>;
-  <span class="code-kw">final</span> <span class="code-type">bool</span> openToWork = <span class="code-bool">true</span>;
-
-  <span class="code-kw">final</span> <span class="code-type">List&lt;String&gt;</span> techStack = [
-    <span class="code-str">"Flutter"</span>, <span class="code-str">"Dart"</span>, <span class="code-str">"JavaScript"</span>,
-    <span class="code-str">"React"</span>, <span class="code-str">"PHP"</span>, <span class="code-str">"Firebase"</span>, <span class="code-str">"MySQL"</span>
-  ];
-
-  <span class="code-kw">void</span> <span class="code-fn">executeMission</span>() {
-    <span class="code-cmt">// Crafting clean, scalable digital products</span>
-    <span class="code-fn">buildResponsiveUI</span>();
-    <span class="code-fn">optimizePerformance</span>();
-    <span class="code-fn">deliverImpactfulApps</span>();
-  }
-}</code></pre>
+          <div class="terminal-body" id="terminalBody">
+            <div class="code-line" style="--i:1;"><span class="line-num">1</span><span class="line-text"><span class="code-kw">class</span> <span class="code-cls">TomzitAhamad</span> {</span></div>
+            <div class="code-line" style="--i:2;"><span class="line-num">2</span><span class="line-text">&nbsp;&nbsp;<span class="code-kw">final</span> <span class="code-type">String</span> role = <span class="code-str">"Flutter & Web Developer"</span>;</span></div>
+            <div class="code-line" style="--i:3;"><span class="line-num">3</span><span class="line-text">&nbsp;&nbsp;<span class="code-kw">final</span> <span class="code-type">String</span> location = <span class="code-str">"Dhaka, Bangladesh"</span>;</span></div>
+            <div class="code-line" style="--i:4;"><span class="line-num">4</span><span class="line-text">&nbsp;&nbsp;<span class="code-kw">final</span> <span class="code-type">bool</span> openToWork = <span class="code-bool">true</span>;</span></div>
+            <div class="code-line" style="--i:5;"><span class="line-num">5</span><span class="line-text"></span></div>
+            <div class="code-line" style="--i:6;"><span class="line-num">6</span><span class="line-text">&nbsp;&nbsp;<span class="code-kw">final</span> <span class="code-type">List&lt;String&gt;</span> techStack = [</span></div>
+            <div class="code-line" style="--i:7;"><span class="line-num">7</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Flutter"</span>, <span class="code-str">"Dart"</span>, <span class="code-str">"JavaScript"</span>,</span></div>
+            <div class="code-line" style="--i:8;"><span class="line-num">8</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"React"</span>, <span class="code-str">"PHP"</span>, <span class="code-str">"Firebase"</span>, <span class="code-str">"MySQL"</span></span></div>
+            <div class="code-line" style="--i:9;"><span class="line-num">9</span><span class="line-text">&nbsp;&nbsp;];</span></div>
+            <div class="code-line" style="--i:10;"><span class="line-num">10</span><span class="line-text"></span></div>
+            <div class="code-line" style="--i:11;"><span class="line-num">11</span><span class="line-text">&nbsp;&nbsp;<span class="code-kw">void</span> <span class="code-fn">executeMission</span>() {</span></div>
+            <div class="code-line" style="--i:12;"><span class="line-num">12</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-cmt">// Crafting clean, scalable digital products</span></span></div>
+            <div class="code-line" style="--i:13;"><span class="line-num">13</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">buildResponsiveUI</span>();</span></div>
+            <div class="code-line" style="--i:14;"><span class="line-num">14</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">optimizePerformance</span>();</span></div>
+            <div class="code-line" style="--i:15;"><span class="line-num">15</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">deliverImpactfulApps</span>();</span></div>
+            <div class="code-line" style="--i:16;"><span class="line-num">16</span><span class="line-text">&nbsp;&nbsp;}</span></div>
+            <div class="code-line" style="--i:17;"><span class="line-num">17</span><span class="line-text">}</span></div>
+            <div class="code-line cursor-line" style="--i:18;"><span class="line-num">18</span><span class="line-text"><span class="terminal-cursor"></span></span></div>
           </div>
 
           <!-- Quick Metrics Grid -->
           <div class="terminal-stats-grid">
             <div class="stat-mini-card">
-              <span class="stat-num">01+</span>
+              <span class="stat-num" data-target="1" data-prefix="0" data-suffix="+">01+</span>
               <span class="stat-label">Years Experience</span>
             </div>
             <div class="stat-mini-card">
-              <span class="stat-num">06+</span>
+              <span class="stat-num" data-target="6" data-prefix="0" data-suffix="+">06+</span>
               <span class="stat-label">Projects Built</span>
             </div>
             <div class="stat-mini-card">
-              <span class="stat-num">12+</span>
+              <span class="stat-num" data-target="12" data-prefix="" data-suffix="+">12+</span>
               <span class="stat-label">Tech Skills</span>
             </div>
           </div>
@@ -642,7 +644,7 @@
 
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 
 </body>
 
