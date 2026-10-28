@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tomzit Ahamad | Flutter Developer</title>
+  <title>Tomzit Ahamad | Flutter & Web Developer</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=7" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
@@ -37,42 +37,56 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="home">
 
     <!-- Left Content -->
     <div class="hero-content">
 
+      <div class="hero-status-badge">
+        <span class="status-dot"></span>
+        <span>Available for App & Web Projects</span>
+      </div>
+
       <h1>
         Hi There,<br>
-        I'm <span>Tomzit Ahamad</span>
+        I'm <span class="hero-name">Tomzit Ahamad</span>
       </h1>
 
       <h2>
-        I Am Into <span class="typing"></span>
+        I Am Into <span class="typing"></span><span class="typing-cursor">|</span>
       </h2>
 
-      <button class="btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
-        About Me
-        <i class="fa-solid fa-circle-down"></i>
-      </button>
+      <p class="hero-desc">
+        Passionate about developing high-performance cross-platform mobile applications and modern, scalable full-stack websites with clean architecture.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#projects" class="btn-primary">
+          View Projects
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="resume.pdf" download class="btn-secondary">
+          <i class="fa-solid fa-file-arrow-down"></i>
+          Download CV
+        </a>
+      </div>
 
       <!-- Social Icons -->
       <div class="social-icons">
 
-        <a href="https://www.linkedin.com/in/tomzit-ahamad-0b6598400" target="_blank">
-          <i class="fab fa-linkedin"></i>
-        </a>
-
-        <a href="https://github.com/tomzitAhamad">
+        <a href="https://github.com/tomzitAhamad" target="_blank" aria-label="GitHub" class="social-link github">
           <i class="fab fa-github"></i>
         </a>
 
-
-        <a href="https://www.facebook.com/sa.kib.505960">
-          <i class="fab fa-facebook"></i>
+        <a href="https://www.linkedin.com/in/tomzit-ahamad-0b6598400" target="_blank" aria-label="LinkedIn" class="social-link linkedin">
+          <i class="fab fa-linkedin-in"></i>
         </a>
 
-        <a href="https://www.instagram.com/sksakib005/">
+        <a href="https://www.facebook.com/sa.kib.505960" target="_blank" aria-label="Facebook" class="social-link facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.instagram.com/sksakib005/" target="_blank" aria-label="Instagram" class="social-link instagram">
           <i class="fab fa-instagram"></i>
         </a>
 
@@ -80,11 +94,48 @@
 
     </div>
 
-    <!-- Right Image -->
+    <!-- Right Image Showcase -->
     <div class="hero-image">
 
-      <div class="image-circle">
-        <img src="assets/images/tomzit.jpeg" alt="profile">
+      <div class="hero-image-wrapper">
+
+        <div class="hero-glow-blob"></div>
+
+        <div class="image-circle">
+          <img src="assets/images/tomzit.jpeg" alt="Tomzit Ahamad - Flutter & Web Developer">
+        </div>
+
+        <!-- Floating Badges -->
+        <div class="float-badge badge-mobile">
+          <div class="badge-icon-circle mobile-icon">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+          </div>
+          <div class="badge-text">
+            <strong>Mobile Apps</strong>
+            <small>iOS & Android</small>
+          </div>
+        </div>
+
+        <div class="float-badge badge-web">
+          <div class="badge-icon-circle web-icon">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <div class="badge-text">
+            <strong>Web Development</strong>
+            <small>Frontend & Backend</small>
+          </div>
+        </div>
+
+        <div class="float-badge badge-role">
+          <div class="badge-icon-circle check-icon">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <div class="badge-text">
+            <strong>App + Web Dev</strong>
+            <small>Scalable Digital Products</small>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -100,7 +151,7 @@
       <!-- Left Image -->
       <div class="about-image">
 
-        <img src="assets/images/professional.png" alt="about image">
+        <img src="assets/images/professional-studio.png" alt="Tomzit Ahamad - Flutter & Web Developer">
 
       </div>
 
@@ -111,18 +162,15 @@
           About <span>Me</span>
         </h2>
 
-        <h3>Flutter App Developer</h3>
+        <h3>Flutter & Web Developer</h3>
 
         <p>
-          I am a passionate Flutter Developer from Bangladesh.
-          I love building beautiful, responsive, and user-friendly
-          mobile applications using Flutter.
-          I am also interested in Web Development field by using
-          HTML,CSS,Js,PHP,MySql.
-          I enjoy learning modern technologies and solving
-          real-world problems through clean and scalable apps.
-          My goal is to become a professional software engineer
-          and build impactful digital products.
+          I am a passionate App and Web Developer from Bangladesh.
+          I specialize in building high-performance, responsive cross-platform
+          mobile applications with Flutter as well as modern, dynamic websites
+          and web applications using HTML, CSS, JavaScript, PHP, and MySQL.
+          I enjoy learning modern technologies, writing clean scalable code, and
+          solving real-world problems to create impactful digital products.
         </p>
 
         <div class="about-info">
@@ -240,7 +288,7 @@
       <h2>My <span>Projects</span></h2>
 
       <p>
-        Here are some of my recent Flutter projects.
+        Here are some of my recent Flutter and Web projects.
       </p>
 
     </div>
@@ -252,15 +300,15 @@
       <div class="project-card">
 
         <div class="project-img">
-          <img src="assets/images/e-com.png" alt="project">
+          <img src="assets/images/dummy/dummy-ecom.png" alt="E-Commerce App">
         </div>
 
         <div class="project-content">
 
-          <h3>E-Commarce App</h3>
+          <h3>E-Commerce App</h3>
 
           <p>
-            A e-commarce app where user can see products categories, make wishlist and make add to cart as well.
+            An e-commerce app where users can browse product categories, manage wishlists, and add items to cart seamlessly.
           </p>
 
           <div class="project-tags">
@@ -293,7 +341,7 @@
       <div class="project-card">
 
         <div class="project-img">
-          <img src="assets/images/recipe.png" alt="project">
+          <img src="assets/images/dummy/dummy-recipe.png" alt="Recipe App">
         </div>
 
         <div class="project-content">
@@ -301,7 +349,7 @@
           <h3>Recipe App</h3>
 
           <p>
-            A racipe app where are defferent types of food of different countries.
+            A recipe app featuring diverse global cuisines, cooking instructions, and ingredient guides.
           </p>
 
           <div class="project-tags">
@@ -330,12 +378,12 @@
 
 
 
-      <!-- Project 5 -->
+      <!-- Project 3 -->
 
       <div class="project-card">
 
         <div class="project-img">
-          <img src="assets/images/lottery.png" alt="project">
+          <img src="assets/images/dummy/dummy-lottery.png" alt="Lottery App">
         </div>
 
         <div class="project-content">
@@ -343,7 +391,7 @@
           <h3>Lottery App</h3>
 
           <p>
-            A lottery app where user can check their luck by picking number. It's a gaming type App.
+            An interactive lottery and lucky draw gaming app with dynamic number picking and reward animations.
           </p>
 
           <div class="project-tags">
@@ -373,12 +421,12 @@
 
       </div>
 
-      <!-- Project 6 -->
+      <!-- Project 4 -->
 
       <div class="project-card">
 
         <div class="project-img">
-          <img src="assets/images/language.png" alt="project">
+          <img src="assets/images/dummy/dummy-language.png" alt="Language Learning App">
         </div>
 
         <div class="project-content">
@@ -386,7 +434,8 @@
           <h3>Language Learning App</h3>
 
           <p>
-            A language learning app where user can learn vocabulary, give quiz, practice flashback, and view progress.
+            A language learning app featuring vocabulary flashcards, interactive quizzes, and daily progress tracking.
+          </p>
 
           <div class="project-tags">
 
@@ -415,12 +464,12 @@
 
 
       </div>
-      <!-- Project 6 -->
+      <!-- Project 5 -->
 
       <div class="project-card">
 
         <div class="project-img">
-          <img src="assets/images/fitness.png" alt="project">
+          <img src="assets/images/dummy/dummy-fitness.png" alt="Fitness Tracking App">
         </div>
 
         <div class="project-content">
@@ -428,7 +477,8 @@
           <h3>Fitness Tracking App</h3>
 
           <p>
-            A fitness tracking app where user can track there fitness and save data.
+            A comprehensive fitness tracker allowing users to log workouts, track health stats, and visualize progress.
+          </p>
 
           <div class="project-tags">
 
@@ -509,7 +559,7 @@
 
         <div class="timeline-content">
 
-          <h3>Flutter Developer</h3>
+          <h3>App Developer</h3>
 
           <h4>DeshIT-BD</h4>
 
@@ -523,6 +573,7 @@
 
       </div>
 
+    </div>
 
   </section>
 
@@ -530,45 +581,45 @@
 
   <section class="contact-section" id="contact">
 
-    <div class="contact-container">
+    <div class="contact-title">
+      <h2>Contact <span>Me</span></h2>
+      <p>
+        I’m a passionate Flutter & Web Developer dedicated to building
+        high-performance mobile applications and modern, responsive websites.
+        Feel free to reach out for collaboration, project inquiries, or freelance work.
+      </p>
+    </div>
 
-      <!-- Left Side -->
-      <div class="contact-left">
+    <div class="contact-cards">
 
-        <h2>Contact Me</h2>
-
-        <p>
-          I’m a passionate Flutter Developer focused on building
-          beautiful and responsive mobile applications.
-          Feel free to contact me for collaboration or freelance work.
-        </p>
-
-        <div class="contact-info">
-
-          <div class="info-box">
-            <i class="fa-solid fa-envelope"></i>
-            <span>ahamad15-5399@diu.edu.bd</span>
-          </div>
-
-          <div class="info-box">
-            <i class="fa-solid fa-phone"></i>
-            <span>+880 1762-161370</span>
-          </div>
-
-          <div class="info-box">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Bangladesh</span>
-          </div>
-
+      <a href="mailto:ahamad15-5399@diu.edu.bd" class="contact-card">
+        <div class="icon-circle">
+          <i class="fa-solid fa-envelope"></i>
         </div>
+        <h3>Email</h3>
+        <p>ahamad15-5399@diu.edu.bd</p>
+      </a>
 
+      <a href="tel:+8801762161370" class="contact-card">
+        <div class="icon-circle">
+          <i class="fa-solid fa-phone"></i>
+        </div>
+        <h3>Phone</h3>
+        <p>+880 1762-161370</p>
+      </a>
+
+      <div class="contact-card">
+        <div class="icon-circle">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <h3>Location</h3>
+        <p>Dhaka, Bangladesh</p>
       </div>
-
-
 
     </div>
 
   </section>
+
   <!-- =========================
      Footer Section
 ========================= -->
@@ -576,100 +627,26 @@
   <footer class="footer">
 
     <p class="footer-text">
-      © 2026 Tomzit Ahamad | Flutter Developer
+      © 2026 Tomzit Ahamad | Flutter & Web Developer
     </p>
 
     <div class="footer-icons">
 
-      <a href="#">
+      <a href="https://github.com/tomzitAhamad" target="_blank">
         <i class="fab fa-github"></i>
       </a>
 
-      <a href="#">
+      <a href="https://www.linkedin.com/in/tomzit-ahamad-0b6598400" target="_blank">
         <i class="fab fa-linkedin"></i>
       </a>
 
-      <a href="#">
+      <a href="https://www.facebook.com/sa.kib.505960" target="_blank">
         <i class="fab fa-facebook"></i>
       </a>
 
     </div>
 
   </footer>
-
-  <!-- =========================
-     Footer CSS
-========================= -->
-
-  <style>
-    .footer {
-      background: #0f172a;
-
-      color: white;
-
-      padding: 25px 10%;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      flex-wrap: wrap;
-
-      gap: 20px;
-    }
-
-    /* Footer Text */
-
-    .footer-text {
-      font-size: 16px;
-      font-weight: 500;
-    }
-
-    /* Icons */
-
-    .footer-icons {
-      display: flex;
-      gap: 15px;
-    }
-
-    .footer-icons a {
-      width: 42px;
-      height: 42px;
-
-      background: #1e293b;
-      color: white;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      border-radius: 50%;
-
-      text-decoration: none;
-
-      font-size: 18px;
-
-      transition: 0.3s;
-    }
-
-    /* Hover */
-
-    .footer-icons a:hover {
-      background: #f59e0b;
-      transform: translateY(-5px);
-    }
-
-    /* Responsive */
-
-    @media(max-width:768px) {
-
-      .footer {
-        flex-direction: column;
-        text-align: center;
-      }
-
-    }
-  </style>
 
   <!-- =========================
      Footer JS
@@ -685,7 +662,7 @@
     document.querySelector(
       ".footer-text"
     ).innerHTML =
-      `© ${currentYear} Tomzit Ahamad | Flutter Developer`;
+      `© ${currentYear} Tomzit Ahamad | Flutter & Web Developer`;
 
   </script>
 
