@@ -181,4 +181,244 @@ window.addEventListener("DOMContentLoaded", () => {
 
     revealElements.forEach((el) => revealObserver.observe(el));
   }
+
+  // ============================================
+  // Interactive Plexus Particle Constellation Canvas
+  // ============================================
+  const plexusCanvas = document.getElementById("plexus-canvas");
+  if (plexusCanvas) {
+    const ctx = plexusCanvas.getContext("2d");
+    let width, height, dpr;
+    let particles = [];
+    let animationFrameId;
+
+    const mouse = {
+      x: -1000,
+      y: -1000,
+      active: false,
+      radius: 175
+    };
+
+    window.addEventListener("mousemove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      mouse.active = true;
+    });
+
+    window.addEventListener("mouseleave", () => {
+      mouse.active = false;
+      mouse.x = -1000;
+      mouse.y = -1000;
+    });
+
+    function getPaletteColor(x, w) {
+      const rand = Math.random();
+      if (rand < 0.16) return "#ffffff"; // Crisp white stars
+
+      const ratio = x / Math.max(w, 1);
+      if (ratio < 0.36) {
+        // Pink / Crimson / Magenta region (matches left of user screenshot)
+        const pinks = ["#ff014f", "#ff2a85", "#f72585", "#ff5c8a", "#e01e5a"];
+        return pinks[Math.floor(Math.random() * pinks.length)];
+      } else if (ratio < 0.72) {
+        // Cyan / Electric Blue / Teal region (matches center of user screenshot)
+        const cyans = ["#00e5ff", "#00b4d8", "#48cae4", "#06d6a0", "#72efdd"];
+        return cyans[Math.floor(Math.random() * cyans.length)];
+      } else {
+        // Lime / Neon Green region (matches right of user screenshot)
+        const greens = ["#70e000", "#9ef01a", "#06d6a0", "#38b000", "#aacc00"];
+        return greens[Math.floor(Math.random() * greens.length)];
+      }
+    }
+
+    function hexToRgba(hex, alpha) {
+      if (!hex || hex === "#ffffff") return `rgba(255, 255, 255, ${alpha})`;
+      let r = 255, g = 1, b = 79;
+      if (hex.startsWith("#")) {
+        const c = hex.slice(1);
+        if (c.length === 6) {
+          r = parseInt(c.slice(0, 2), 16);
+          g = parseInt(c.slice(2, 4), 16);
+          b = parseInt(c.slice(4, 6), 16);
+        }
+      }
+      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+
+    class Particle {
+      constructor() {
+        this.reset(true);
+      }
+
+      reset(initial = false) {
+        this.x = initial ? Math.random() * width : (Math.random() > 0.5 ? 0 : width);
+        this.y = initial ? Math.random() * height : Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.65;
+        this.vy = (Math.random() - 0.5) * 0.65;
+        this.radius = Math.random() * 2.2 + 1.4;
+        this.color = getPaletteColor(this.x, width);
+        this.baseAlpha = Math.random() * 0.35 + 0.65;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        // Bounce off canvas boundaries
+        if (this.x < 0) { this.x = 0; this.vx *= -1; }
+        else if (this.x > width) { this.x = width; this.vx *= -1; }
+        if (this.y < 0) { this.y = 0; this.vy *= -1; }
+        else if (this.y > height) { this.y = height; this.vy *= -1; }
+
+        // Subtle color evolution matching spatial area
+        if (Math.random() < 0.015) {
+          this.color = getPaletteColor(this.x, width);
+        }
+
+        // Gentle interactive mouse repulsion
+        if (mouse.active) {
+          const dx = this.x - mouse.x;
+          const dy = this.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius && dist > 0) {
+            const force = (1 - dist / mouse.radius) * 1.8;
+            this.x += (dx / dist) * force;
+            this.y += (dy / dist) * force;
+          }
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = hexToRgba(this.color, this.baseAlpha);
+        ctx.shadowBlur = this.radius > 2.2 ? 12 : 7;
+        ctx.shadowColor = this.color;
+        ctx.fill();
+
+        // White core for luminous glowing star appearance
+        if (this.radius > 2.3 || this.color === "#ffffff") {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius * 0.45, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+    }
+
+    function initCanvas() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+
+      plexusCanvas.width = Math.floor(width * dpr);
+      plexusCanvas.height = Math.floor(height * dpr);
+      plexusCanvas.style.width = width + "px";
+      plexusCanvas.style.height = height + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      // Scale particle count dynamically based on screen resolution
+      const count = Math.min(95, Math.max(45, Math.floor((width * height) / 13000)));
+      particles = [];
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    let resizeTimeout;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        initCanvas();
+      }, 150);
+    });
+
+    const maxLineDist = 135;
+    const maxTriangleDist = 95;
+
+    function animatePlexus() {
+      ctx.clearRect(0, 0, width, height);
+
+      const pLen = particles.length;
+
+      // Update positions
+      for (let i = 0; i < pLen; i++) {
+        particles[i].update();
+      }
+
+      // Draw Translucent Geometric Triangles (Authentic Plexus look matching reference)
+      let trianglesDrawn = 0;
+      for (let i = 0; i < pLen && trianglesDrawn < 48; i++) {
+        for (let j = i + 1; j < pLen && trianglesDrawn < 48; j++) {
+          const d1 = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+          if (d1 < maxTriangleDist) {
+            for (let k = j + 1; k < pLen && trianglesDrawn < 48; k++) {
+              const d2 = Math.hypot(particles[j].x - particles[k].x, particles[j].y - particles[k].y);
+              const d3 = Math.hypot(particles[i].x - particles[k].x, particles[i].y - particles[k].y);
+
+              if (d2 < maxTriangleDist && d3 < maxTriangleDist) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.lineTo(particles[k].x, particles[k].y);
+                ctx.closePath();
+
+                // Luminous translucent multifaceted polygon fill
+                const triColor = hexToRgba(particles[i].color, 0.09);
+                ctx.fillStyle = triColor;
+                ctx.fill();
+                trianglesDrawn++;
+              }
+            }
+          }
+        }
+      }
+
+      // Draw Interconnected Constellation Lines
+      for (let i = 0; i < pLen; i++) {
+        for (let j = i + 1; j < pLen; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < maxLineDist) {
+            const alpha = (1 - dist / maxLineDist) * 0.42;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = hexToRgba(particles[i].color, alpha);
+            ctx.lineWidth = 0.85;
+            ctx.stroke();
+          }
+        }
+
+        // Draw connections to mouse cursor
+        if (mouse.active) {
+          const mdx = particles[i].x - mouse.x;
+          const mdy = particles[i].y - mouse.y;
+          const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+
+          if (mdist < mouse.radius) {
+            const mAlpha = (1 - mdist / mouse.radius) * 0.58;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = hexToRgba(particles[i].color, mAlpha);
+            ctx.lineWidth = 1.1;
+            ctx.stroke();
+          }
+        }
+
+        // Draw particle node
+        particles[i].draw();
+      }
+
+      animationFrameId = requestAnimationFrame(animatePlexus);
+    }
+
+    initCanvas();
+    animatePlexus();
+  }
 });

@@ -7,14 +7,26 @@
   <title>Tomzit Ahamad | Flutter & Web Developer</title>
 
   <!-- CSS (INBIO Theme) -->
-  <link rel="stylesheet" href="style.css?v=14" />
+  <link rel="stylesheet" href="style.css?v=19" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
 </head>
 
 <body>
+
+  <!-- =========================
+     Interactive Plexus Particle Network Canvas
+========================= -->
+  <canvas id="plexus-canvas"></canvas>
+
+  <!-- Atmospheric Cosmic Blur Behind Plexus -->
+  <div class="animated-bg-overlay" aria-hidden="true">
+    <div class="aurora-blob blob-1"></div>
+    <div class="aurora-blob blob-2"></div>
+    <div class="aurora-blob blob-3"></div>
+    <div class="aurora-blob blob-4"></div>
+  </div>
 
   <!-- =========================
      Navbar (INBIO Dark)
@@ -58,7 +70,8 @@
       </h1>
 
       <p class="description">
-        I build high-performance mobile applications with Flutter and create modern, scalable full-stack web solutions. Focused on clean architecture, beautiful UI, and seamless user experiences.
+        I build high-performance mobile applications with Flutter and create modern, scalable full-stack web solutions.
+        Focused on clean architecture, beautiful UI, and seamless user experiences.
       </p>
 
       <!-- Bottom Actions (FIND WITH ME & BEST SKILL ON) -->
@@ -67,20 +80,29 @@
         <div class="action-col">
           <span class="col-title">FIND WITH ME</span>
           <div class="icon-group">
-            <a href="https://github.com/tomzitAhamad" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/tomzit-ahamad-0b6598400" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.facebook.com/sa.kib.505960" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/sksakib005/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/tomzitAhamad" target="_blank" aria-label="GitHub" class="social-btn btn-github"
+              title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/tomzit-ahamad-0b6598400" target="_blank" aria-label="LinkedIn"
+              class="social-btn btn-linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/sa.kib.505960" target="_blank" aria-label="Facebook"
+              class="social-btn btn-facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/sksakib005/" target="_blank" aria-label="Instagram"
+              class="social-btn btn-instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
 
         <div class="action-col">
           <span class="col-title">BEST SKILL ON</span>
           <div class="icon-group">
-            <span class="icon-box" title="Flutter"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" width="22"></span>
-            <span class="icon-box" title="JavaScript"><i class="fa-brands fa-js" style="color: #f7df1e;"></i></span>
-            <span class="icon-box" title="Firebase"><i class="fa-solid fa-fire" style="color: #ffa611;"></i></span>
-            <span class="icon-box" title="PHP"><i class="fa-brands fa-php" style="color: #777bb4;"></i></span>
+            <span class="icon-box skill-btn btn-flutter" title="Flutter"><img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter"
+                width="22"></span>
+            <span class="icon-box skill-btn btn-js" title="JavaScript"><i class="fa-brands fa-js"
+                style="color: #f7df1e;"></i></span>
+            <span class="icon-box skill-btn btn-firebase" title="Firebase"><i class="fa-solid fa-fire"
+                style="color: #ffa611;"></i></span>
+            <span class="icon-box skill-btn btn-php" title="PHP"><i class="fa-brands fa-php"
+                style="color: #777bb4;"></i></span>
           </div>
         </div>
 
@@ -100,82 +122,359 @@
   </section>
 
   <!-- =========================
-     Features ("What I Do") Section
+     Features ("What I Do") Section - Professional Showcase
 ========================= -->
   <section class="features-section" id="features">
 
     <div class="section-header scroll-reveal">
-      <span class="subtitle">FEATURES</span>
+      <span class="subtitle">SERVICES & EXPERTISE</span>
       <h2>What I Do</h2>
-      <p>Custom mobile applications and full-stack web solutions tailored to your needs.</p>
+      <p>Building high-performance mobile applications and modern full-stack web solutions with clean architecture.</p>
     </div>
 
-    <div class="features-grid stagger-grid">
+    <!-- Central Guideline & Side-by-Side Showcase -->
+    <div class="features-showcase-container">
+      <div class="features-guide-line"></div>
 
-      <!-- Feature 1 -->
-      <div class="feature-card scroll-reveal">
-        <div class="feature-icon">
-          <i class="fa-solid fa-mobile-screen-button"></i>
+      <!-- Feature 1: Mobile App Development (Visual Left, Content Right) -->
+      <div class="feature-showcase-row">
+        <div class="feature-center-node">
+          <span>01</span>
         </div>
-        <h3>App Development</h3>
-        <p>
-          Building high-performance, responsive cross-platform mobile apps for iOS and Android using Flutter & React Native.
-        </p>
+
+        <!-- Left: Interactive Mobile App Mockup -->
+        <div class="feature-visual-col scroll-reveal-left">
+          <div class="mockup-phone-card">
+            <div class="mockup-phone-notch">
+              <span class="notch-camera"></span>
+              <span class="notch-speaker"></span>
+            </div>
+            <div class="phone-screen-content">
+              <div class="phone-app-header">
+                <div class="phone-user">
+                  <div class="phone-avatar-dot"></div>
+                  <span>Tomzit Store</span>
+                </div>
+                <i class="fa-solid fa-bell phone-icon"></i>
+              </div>
+              <div class="phone-banner">
+                <span class="banner-tag">Flutter 3.x</span>
+                <h4>Cross-Platform App</h4>
+              </div>
+              <div class="phone-cards-row">
+                <div class="phone-mini-card">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                  <span>Store</span>
+                </div>
+                <div class="phone-mini-card active">
+                  <i class="fa-solid fa-bolt"></i>
+                  <span>Fast UI</span>
+                </div>
+                <div class="phone-mini-card">
+                  <i class="fa-solid fa-cloud"></i>
+                  <span>Sync</span>
+                </div>
+              </div>
+              <div class="phone-feed-item">
+                <div class="feed-thumb">
+                  <i class="fa-solid fa-mobile-screen"></i>
+                </div>
+                <div class="feed-details">
+                  <span class="feed-line-1">High-Performance Engine</span>
+                  <span class="feed-line-2">Smooth 60FPS UI rendering</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Tech Badges -->
+            <div class="floating-badge badge-flutter">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter"
+                width="16" height="16">
+              <span>Flutter & Dart</span>
+            </div>
+            <div class="floating-badge badge-fps">
+              <i class="fa-solid fa-bolt" style="color: #ffd166;"></i>
+              <span>60 FPS Native</span>
+            </div>
+            <div class="floating-badge badge-platforms">
+              <i class="fa-solid fa-circle-check" style="color: #06d6a0;"></i>
+              <span>iOS & Android</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="feature-content-col scroll-reveal-right">
+          <span class="feature-pill">MOBILE SPECIALTY</span>
+          <h3>Mobile App Development</h3>
+          <p>
+            I develop robust, highly responsive mobile applications for iOS and Android using Flutter and Dart. From UI
+            prototyping to state management and store deployment, I ensure every app delivers a seamless native feel.
+          </p>
+          <ul class="feature-bullets">
+            <li><i class="fa-solid fa-circle-check"></i> Single codebase for both iOS & Android</li>
+            <li><i class="fa-solid fa-circle-check"></i> Clean state management (Bloc, Provider, GetX)</li>
+            <li><i class="fa-solid fa-circle-check"></i> Offline caching with Hive & SQLite</li>
+            <li><i class="fa-solid fa-circle-check"></i> Smooth 60fps animations & pixel-perfect UI</li>
+          </ul>
+          <div class="feature-tags">
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>React Native</span>
+            <span>Firebase</span>
+            <span>REST API</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Feature 2 -->
-      <div class="feature-card scroll-reveal">
-        <div class="feature-icon">
-          <i class="fa-solid fa-code"></i>
+      <!-- Feature 2: Full-Stack Web Development (Content Left, Visual Right) -->
+      <div class="feature-showcase-row reverse">
+        <div class="feature-center-node">
+          <span>02</span>
         </div>
-        <h3>Web Development</h3>
-        <p>
-          Developing modern, fast, and scalable websites and web applications using HTML5, CSS3, JavaScript, PHP, and MySQL.
-        </p>
+
+        <!-- Left: Content -->
+        <div class="feature-content-col scroll-reveal-left">
+          <span class="feature-pill">FULL-STACK & RESPONSIVE</span>
+          <h3>Web Development</h3>
+          <p>
+            Designing and coding scalable websites and dynamic web applications. I combine modern frontend frameworks
+            with solid backend architectures to create lightning-fast, accessible, and database-driven web solutions.
+          </p>
+          <ul class="feature-bullets">
+            <li><i class="fa-solid fa-circle-check"></i> Responsive layouts optimized for all device viewports</li>
+            <li><i class="fa-solid fa-circle-check"></i> Secure backend architecture with PHP & MySQL</li>
+            <li><i class="fa-solid fa-circle-check"></i> Dynamic DOM interactions with modern JavaScript</li>
+            <li><i class="fa-solid fa-circle-check"></i> SEO-friendly semantic markup & fast Core Web Vitals</li>
+          </ul>
+          <div class="feature-tags">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>PHP</span>
+            <span>MySQL</span>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Web Browser Mockup -->
+        <div class="feature-visual-col scroll-reveal-right">
+          <div class="mockup-browser-card">
+            <div class="browser-header">
+              <div class="browser-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              <div class="browser-address-bar">
+                <i class="fa-solid fa-lock"></i>
+                <span>https://tomzit.dev/dashboard</span>
+              </div>
+            </div>
+            <div class="browser-body">
+              <div class="dash-top-bar">
+                <span class="dash-chip">Overview</span>
+                <span class="dash-chip active">Analytics</span>
+                <span class="dash-chip">Database</span>
+              </div>
+              <div class="dash-stat-row">
+                <div class="dash-stat-box">
+                  <span class="dash-val">99.9%</span>
+                  <span class="dash-lbl">Uptime</span>
+                </div>
+                <div class="dash-stat-box">
+                  <span class="dash-val">120ms</span>
+                  <span class="dash-lbl">Speed</span>
+                </div>
+                <div class="dash-stat-box">
+                  <span class="dash-val">Live</span>
+                  <span class="dash-lbl">MySQL</span>
+                </div>
+              </div>
+              <div class="dash-chart-mock">
+                <div class="chart-bar" style="--h: 40%;"></div>
+                <div class="chart-bar" style="--h: 65%;"></div>
+                <div class="chart-bar" style="--h: 50%;"></div>
+                <div class="chart-bar" style="--h: 88%;"></div>
+                <div class="chart-bar" style="--h: 72%;"></div>
+                <div class="chart-bar active" style="--h: 96%;"></div>
+              </div>
+            </div>
+
+            <!-- Floating Badges -->
+            <div class="floating-badge badge-fullstack">
+              <i class="fa-solid fa-code" style="color: #61afef;"></i>
+              <span>Full-Stack Web</span>
+            </div>
+            <div class="floating-badge badge-php">
+              <i class="fa-brands fa-php" style="color: #777bb4;"></i>
+              <span>PHP & MySQL</span>
+            </div>
+            <div class="floating-badge badge-speed">
+              <i class="fa-solid fa-gauge-high" style="color: #27c93f;"></i>
+              <span>Fast Load</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Feature 3 -->
-      <div class="feature-card scroll-reveal">
-        <div class="feature-icon">
-          <i class="fa-solid fa-compass-drafting"></i>
+      <!-- Feature 3: UI/UX Implementation (Visual Left, Content Right) -->
+      <div class="feature-showcase-row">
+        <div class="feature-center-node">
+          <span>03</span>
         </div>
-        <h3>UI/UX Implementation</h3>
-        <p>
-          Translating design prototypes into fluid, pixel-perfect user interfaces with intuitive navigation and animations.
-        </p>
+
+        <!-- Left: UI/UX Studio Visual -->
+        <div class="feature-visual-col scroll-reveal-left">
+          <div class="mockup-design-card">
+            <div class="design-header">
+              <div class="design-tools">
+                <i class="fa-solid fa-arrow-pointer"></i>
+                <i class="fa-solid fa-crop"></i>
+                <i class="fa-solid fa-palette"></i>
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <span class="design-title">DesignSystem.fig</span>
+            </div>
+            <div class="design-canvas">
+              <div class="color-palette-bar">
+                <span class="color-swatch c-crimson" title="#ff014f"></span>
+                <span class="color-swatch c-dark" title="#212428"></span>
+                <span class="color-swatch c-card" title="#2a2e35"></span>
+                <span class="color-swatch c-cyan" title="#00b4d8"></span>
+              </div>
+              <div class="design-elements-preview">
+                <div class="sample-btn-neumorphic">
+                  <i class="fa-solid fa-sparkles"></i> Primary Button
+                </div>
+                <div class="sample-input-box">
+                  <i class="fa-solid fa-magnifying-glass"></i> Search components...
+                </div>
+              </div>
+              <div class="design-spec-box">
+                <div class="spec-line"><span class="spec-lbl">Theme:</span><span class="spec-val">Neumorphic Dark</span>
+                </div>
+                <div class="spec-line"><span class="spec-lbl">Grid:</span><span class="spec-val">Responsive
+                    Layout</span></div>
+              </div>
+            </div>
+
+            <!-- Floating Badges -->
+            <div class="floating-badge badge-figma">
+              <i class="fa-brands fa-figma" style="color: #f24e1e;"></i>
+              <span>Figma to Code</span>
+            </div>
+            <div class="floating-badge badge-pixel">
+              <i class="fa-solid fa-vector-square" style="color: #ff014f;"></i>
+              <span>Pixel Perfect</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="feature-content-col scroll-reveal-right">
+          <span class="feature-pill">INTERACTION & PROTOTYPING</span>
+          <h3>UI/UX Implementation</h3>
+          <p>
+            Bridging the gap between creative visual designs and clean frontend code. I translate Figma and Adobe XD
+            prototypes into interactive, accessible, and fluid user experiences with careful attention to spacing,
+            hierarchy, and micro-animations.
+          </p>
+          <ul class="feature-bullets">
+            <li><i class="fa-solid fa-circle-check"></i> High-fidelity prototype translation into clean code</li>
+            <li><i class="fa-solid fa-circle-check"></i> Neumorphic & modern dark theme engineering</li>
+            <li><i class="fa-solid fa-circle-check"></i> Fluid micro-interactions, hovers, and scroll transitions</li>
+            <li><i class="fa-solid fa-circle-check"></i> Touch-friendly navigation patterns and accessibility</li>
+          </ul>
+          <div class="feature-tags">
+            <span>Figma</span>
+            <span>UI Prototyping</span>
+            <span>CSS3 Animations</span>
+            <span>Responsive Design</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Feature 4 -->
-      <div class="feature-card scroll-reveal">
-        <div class="feature-icon">
-          <i class="fa-solid fa-server"></i>
+      <!-- Feature 4: Cloud, Firebase & REST APIs (Content Left, Visual Right) -->
+      <div class="feature-showcase-row reverse">
+        <div class="feature-center-node">
+          <span>04</span>
         </div>
-        <h3>REST API Integration</h3>
-        <p>
-          Seamlessly connecting applications with external RESTful APIs, third-party services, payment gateways, and data feeds.
-        </p>
-      </div>
 
-      <!-- Feature 5 -->
-      <div class="feature-card scroll-reveal">
-        <div class="feature-icon">
-          <i class="fa-solid fa-fire"></i>
+        <!-- Left: Content -->
+        <div class="feature-content-col scroll-reveal-left">
+          <span class="feature-pill">BACKEND & CLOUD ARCHITECTURE</span>
+          <h3>Firebase & REST API Integration</h3>
+          <p>
+            Connecting mobile and web applications to modern cloud backends, database solutions, and third-party APIs. I
+            implement real-time synchronization, secure JWT / OAuth authentication, and structured cloud Firestore
+            architectures.
+          </p>
+          <ul class="feature-bullets">
+            <li><i class="fa-solid fa-circle-check"></i> Seamless RESTful API integration and JSON serialization</li>
+            <li><i class="fa-solid fa-circle-check"></i> Real-time database syncing with Google Cloud Firestore</li>
+            <li><i class="fa-solid fa-circle-check"></i> Secure user authentication (Email, Google, Phone OTP)</li>
+            <li><i class="fa-solid fa-circle-check"></i> Cloud storage, push notifications, and analytics integration
+            </li>
+          </ul>
+          <div class="feature-tags">
+            <span>Firebase</span>
+            <span>Cloud Firestore</span>
+            <span>REST API</span>
+            <span>JSON</span>
+            <span>Postman</span>
+          </div>
         </div>
-        <h3>Firebase & Database</h3>
-        <p>
-          Implementing robust cloud solutions, real-time database syncing, user authentication, and Cloud Firestore architectures.
-        </p>
-      </div>
 
-      <!-- Feature 6 -->
-      <div class="feature-card scroll-reveal">
-        <div class="feature-icon">
-          <i class="fa-solid fa-laptop-code"></i>
+        <!-- Right: Cloud Network Mockup -->
+        <div class="feature-visual-col scroll-reveal-right">
+          <div class="mockup-cloud-card">
+            <div class="cloud-terminal-top">
+              <span class="cloud-status-dot"></span>
+              <span class="cloud-terminal-title">API Network Inspector</span>
+            </div>
+            <div class="cloud-flow-diagram">
+              <div class="cloud-node node-client">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <span>Client</span>
+              </div>
+              <div class="cloud-pulse-line">
+                <span class="pulse-packet"></span>
+              </div>
+              <div class="cloud-node node-api">
+                <i class="fa-solid fa-server"></i>
+                <span>REST API</span>
+              </div>
+              <div class="cloud-pulse-line">
+                <span class="pulse-packet"></span>
+              </div>
+              <div class="cloud-node node-db">
+                <i class="fa-solid fa-fire"></i>
+                <span>Firestore</span>
+              </div>
+            </div>
+            <div class="cloud-response-snippet">
+              <div class="snippet-header">
+                <span class="resp-status">STATUS: 200 OK</span>
+                <span class="resp-time">48ms</span>
+              </div>
+              <pre><code>{
+  <span class="code-str">"success"</span>: <span class="code-bool">true</span>,
+  <span class="code-str">"sync"</span>: <span class="code-str">"realtime"</span>,
+  <span class="code-str">"auth"</span>: <span class="code-str">"authenticated"</span>
+}</code></pre>
+            </div>
+
+            <!-- Floating Badges -->
+            <div class="floating-badge badge-cloud">
+              <i class="fa-solid fa-cloud-arrow-up" style="color: #00b4d8;"></i>
+              <span>Real-Time Sync</span>
+            </div>
+            <div class="floating-badge badge-auth">
+              <i class="fa-solid fa-shield-halved" style="color: #27c93f;"></i>
+              <span>Secure Auth</span>
+            </div>
+          </div>
         </div>
-        <h3>Cross-Platform Solutions</h3>
-        <p>
-          Delivering unified digital experiences that function seamlessly across mobile devices, tablets, and desktop browsers.
-        </p>
       </div>
 
     </div>
@@ -209,24 +508,51 @@
           </div>
 
           <div class="terminal-body" id="terminalBody">
-            <div class="code-line" style="--i:1;"><span class="line-num">1</span><span class="line-text"><span class="code-kw">class</span> <span class="code-cls">TomzitAhamad</span> {</span></div>
-            <div class="code-line" style="--i:2;"><span class="line-num">2</span><span class="line-text">&nbsp;&nbsp;<span class="code-kw">final</span> <span class="code-type">String</span> role = <span class="code-str">"Flutter & Web Developer"</span>;</span></div>
-            <div class="code-line" style="--i:3;"><span class="line-num">3</span><span class="line-text">&nbsp;&nbsp;<span class="code-kw">final</span> <span class="code-type">String</span> location = <span class="code-str">"Dhaka, Bangladesh"</span>;</span></div>
-            <div class="code-line" style="--i:4;"><span class="line-num">4</span><span class="line-text">&nbsp;&nbsp;<span class="code-kw">final</span> <span class="code-type">bool</span> openToWork = <span class="code-bool">true</span>;</span></div>
+            <div class="code-line" style="--i:1;"><span class="line-num">1</span><span class="line-text"><span
+                  class="code-kw">class</span> <span class="code-cls">TomzitAhamad</span> {</span></div>
+            <div class="code-line" style="--i:2;"><span class="line-num">2</span><span
+                class="line-text">&nbsp;&nbsp;<span class="code-kw">final</span> <span class="code-type">String</span>
+                role = <span class="code-str">"Flutter & Web Developer"</span>;</span></div>
+            <div class="code-line" style="--i:3;"><span class="line-num">3</span><span
+                class="line-text">&nbsp;&nbsp;<span class="code-kw">final</span> <span class="code-type">String</span>
+                location = <span class="code-str">"Dhaka, Bangladesh"</span>;</span></div>
+            <div class="code-line" style="--i:4;"><span class="line-num">4</span><span
+                class="line-text">&nbsp;&nbsp;<span class="code-kw">final</span> <span class="code-type">bool</span>
+                openToWork = <span class="code-bool">true</span>;</span></div>
             <div class="code-line" style="--i:5;"><span class="line-num">5</span><span class="line-text"></span></div>
-            <div class="code-line" style="--i:6;"><span class="line-num">6</span><span class="line-text">&nbsp;&nbsp;<span class="code-kw">final</span> <span class="code-type">List&lt;String&gt;</span> techStack = [</span></div>
-            <div class="code-line" style="--i:7;"><span class="line-num">7</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Flutter"</span>, <span class="code-str">"Dart"</span>, <span class="code-str">"JavaScript"</span>,</span></div>
-            <div class="code-line" style="--i:8;"><span class="line-num">8</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"React"</span>, <span class="code-str">"PHP"</span>, <span class="code-str">"Firebase"</span>, <span class="code-str">"MySQL"</span></span></div>
-            <div class="code-line" style="--i:9;"><span class="line-num">9</span><span class="line-text">&nbsp;&nbsp;];</span></div>
+            <div class="code-line" style="--i:6;"><span class="line-num">6</span><span
+                class="line-text">&nbsp;&nbsp;<span class="code-kw">final</span> <span
+                  class="code-type">List&lt;String&gt;</span> techStack = [</span></div>
+            <div class="code-line" style="--i:7;"><span class="line-num">7</span><span
+                class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Flutter"</span>, <span
+                  class="code-str">"Dart"</span>, <span class="code-str">"JavaScript"</span>,</span></div>
+            <div class="code-line" style="--i:8;"><span class="line-num">8</span><span
+                class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"React"</span>, <span
+                  class="code-str">"PHP"</span>, <span class="code-str">"Firebase"</span>, <span
+                  class="code-str">"MySQL"</span></span></div>
+            <div class="code-line" style="--i:9;"><span class="line-num">9</span><span
+                class="line-text">&nbsp;&nbsp;];</span></div>
             <div class="code-line" style="--i:10;"><span class="line-num">10</span><span class="line-text"></span></div>
-            <div class="code-line" style="--i:11;"><span class="line-num">11</span><span class="line-text">&nbsp;&nbsp;<span class="code-kw">void</span> <span class="code-fn">executeMission</span>() {</span></div>
-            <div class="code-line" style="--i:12;"><span class="line-num">12</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-cmt">// Crafting clean, scalable digital products</span></span></div>
-            <div class="code-line" style="--i:13;"><span class="line-num">13</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">buildResponsiveUI</span>();</span></div>
-            <div class="code-line" style="--i:14;"><span class="line-num">14</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">optimizePerformance</span>();</span></div>
-            <div class="code-line" style="--i:15;"><span class="line-num">15</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">deliverImpactfulApps</span>();</span></div>
-            <div class="code-line" style="--i:16;"><span class="line-num">16</span><span class="line-text">&nbsp;&nbsp;}</span></div>
-            <div class="code-line" style="--i:17;"><span class="line-num">17</span><span class="line-text">}</span></div>
-            <div class="code-line cursor-line" style="--i:18;"><span class="line-num">18</span><span class="line-text"><span class="terminal-cursor"></span></span></div>
+            <div class="code-line" style="--i:11;"><span class="line-num">11</span><span
+                class="line-text">&nbsp;&nbsp;<span class="code-kw">void</span> <span
+                  class="code-fn">executeMission</span>() {</span></div>
+            <div class="code-line" style="--i:12;"><span class="line-num">12</span><span
+                class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-cmt">// Crafting clean, scalable digital
+                  products</span></span></div>
+            <div class="code-line" style="--i:13;"><span class="line-num">13</span><span
+                class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">buildResponsiveUI</span>();</span></div>
+            <div class="code-line" style="--i:14;"><span class="line-num">14</span><span
+                class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">optimizePerformance</span>();</span>
+            </div>
+            <div class="code-line" style="--i:15;"><span class="line-num">15</span><span
+                class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">deliverImpactfulApps</span>();</span>
+            </div>
+            <div class="code-line" style="--i:16;"><span class="line-num">16</span><span
+                class="line-text">&nbsp;&nbsp;}</span></div>
+            <div class="code-line" style="--i:17;"><span class="line-num">17</span><span class="line-text">}</span>
+            </div>
+            <div class="code-line cursor-line" style="--i:18;"><span class="line-num">18</span><span
+                class="line-text"><span class="terminal-cursor"></span></span></div>
           </div>
 
           <!-- Quick Metrics Grid -->
@@ -328,7 +654,8 @@
       </div>
 
       <div class="skill-card-inbio scroll-reveal-zoom">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="flutter" width="46" height="46">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="flutter"
+          width="46" height="46">
         <h3>Flutter</h3>
       </div>
 
@@ -353,7 +680,8 @@
       </div>
 
       <div class="skill-card-inbio scroll-reveal-zoom">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" width="46" height="46">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" width="46"
+          height="46">
         <h3>MySQL</h3>
       </div>
 
@@ -387,7 +715,8 @@
         <span class="project-category">FLUTTER / FIREBASE</span>
         <h3>E-Commerce App</h3>
         <p>
-          An e-commerce mobile application where users can browse product categories, manage wishlists, and add items to cart seamlessly.
+          An e-commerce mobile application where users can browse product categories, manage wishlists, and add items to
+          cart seamlessly.
         </p>
         <div class="project-tech-tags">
           <span>Flutter</span>
@@ -395,7 +724,8 @@
           <span>REST API</span>
         </div>
         <div class="project-card-links">
-          <a href="https://drive.google.com/file/d/1lSTGiZlUdOpqxgoew7ZGgySPUHGQsDVc/view?usp=sharing" target="_blank" class="btn-demo">
+          <a href="https://drive.google.com/file/d/1lSTGiZlUdOpqxgoew7ZGgySPUHGQsDVc/view?usp=sharing" target="_blank"
+            class="btn-demo">
             Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
           <a href="https://github.com/tomzitAhamad/finalcraftybay" target="_blank" class="btn-code">
@@ -412,7 +742,8 @@
         <span class="project-category">FLUTTER / REST API</span>
         <h3>Recipe App</h3>
         <p>
-          A culinary recipe app featuring diverse global cuisines, cooking instructions, and step-by-step ingredient guides.
+          A culinary recipe app featuring diverse global cuisines, cooking instructions, and step-by-step ingredient
+          guides.
         </p>
         <div class="project-tech-tags">
           <span>Flutter</span>
@@ -420,7 +751,8 @@
           <span>UI Design</span>
         </div>
         <div class="project-card-links">
-          <a href="https://drive.google.com/file/d/1vSDIRj4UUdKPSBa9T7rmhkbIIbw3rjmx/view?usp=sharing" target="_blank" class="btn-demo">
+          <a href="https://drive.google.com/file/d/1vSDIRj4UUdKPSBa9T7rmhkbIIbw3rjmx/view?usp=sharing" target="_blank"
+            class="btn-demo">
             Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
           <a href="https://github.com/tomzitAhamad/racipe_book" target="_blank" class="btn-code">
@@ -437,7 +769,8 @@
         <span class="project-category">FLUTTER / GAME</span>
         <h3>Lottery App</h3>
         <p>
-          An interactive lottery and lucky draw gaming app with dynamic number picking, instant results, and rewarding animations.
+          An interactive lottery and lucky draw gaming app with dynamic number picking, instant results, and rewarding
+          animations.
         </p>
         <div class="project-tech-tags">
           <span>Flutter</span>
@@ -445,7 +778,8 @@
           <span>Backend Logic</span>
         </div>
         <div class="project-card-links">
-          <a href="https://drive.google.com/file/d/1UnevwCwZjIutDoHFPJeh5cbekZ90i81d/view?usp=sharing" target="_blank" class="btn-demo">
+          <a href="https://drive.google.com/file/d/1UnevwCwZjIutDoHFPJeh5cbekZ90i81d/view?usp=sharing" target="_blank"
+            class="btn-demo">
             Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
           <a href="https://github.com/tomzitAhamad/lotterayapp" target="_blank" class="btn-code">
@@ -462,7 +796,8 @@
         <span class="project-category">FLUTTER / EDUCATION</span>
         <h3>Language Learning App</h3>
         <p>
-          A language learning app featuring vocabulary flashcards, interactive quizzes, local data caching, and daily progress tracking.
+          A language learning app featuring vocabulary flashcards, interactive quizzes, local data caching, and daily
+          progress tracking.
         </p>
         <div class="project-tech-tags">
           <span>Flutter</span>
@@ -470,7 +805,8 @@
           <span>Firebase</span>
         </div>
         <div class="project-card-links">
-          <a href="https://drive.google.com/file/d/1EZq8lCQcA9QvkqznxvQyMz9oVAs__cAO/view?usp=sharing" target="_blank" class="btn-demo">
+          <a href="https://drive.google.com/file/d/1EZq8lCQcA9QvkqznxvQyMz9oVAs__cAO/view?usp=sharing" target="_blank"
+            class="btn-demo">
             Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
           <a href="https://github.com/tomzitAhamad/CodeAlpha_language_learning_app" target="_blank" class="btn-code">
@@ -487,7 +823,8 @@
         <span class="project-category">FLUTTER / HEALTH</span>
         <h3>Fitness Tracking App</h3>
         <p>
-          A comprehensive fitness tracker allowing users to log daily workouts, monitor health stats, and visualize fitness milestones.
+          A comprehensive fitness tracker allowing users to log daily workouts, monitor health stats, and visualize
+          fitness milestones.
         </p>
         <div class="project-tech-tags">
           <span>Flutter</span>
@@ -495,7 +832,8 @@
           <span>Firebase</span>
         </div>
         <div class="project-card-links">
-          <a href="https://drive.google.com/file/d/16LJz4FDQh1TlJRJUEceR4grAbg1iTQyO/view?usp=sharing" target="_blank" class="btn-demo">
+          <a href="https://drive.google.com/file/d/16LJz4FDQh1TlJRJUEceR4grAbg1iTQyO/view?usp=sharing" target="_blank"
+            class="btn-demo">
             Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
           <a href="https://github.com/tomzitAhamad/CodeAlpha_fitness_tracker_app" target="_blank" class="btn-code">
@@ -512,7 +850,8 @@
         <span class="project-category">WEB / FULL STACK</span>
         <h3>Full-Stack Web App</h3>
         <p>
-          A responsive modern web application built with PHP, MySQL, JavaScript, and HTML/CSS featuring dynamic data management.
+          A responsive modern web application built with PHP, MySQL, JavaScript, and HTML/CSS featuring dynamic data
+          management.
         </p>
         <div class="project-tech-tags">
           <span>JavaScript</span>
@@ -568,7 +907,8 @@
           <h4>DeshIT-BD</h4>
           <span>2026, June - Present</span>
           <p>
-            Developing and maintaining cross-platform mobile and web applications for Android, iOS, and browser platforms.
+            Developing and maintaining cross-platform mobile and web applications for Android, iOS, and browser
+            platforms.
           </p>
         </div>
       </div>
@@ -644,7 +984,7 @@
 
   </footer>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=8"></script>
 
 </body>
 
